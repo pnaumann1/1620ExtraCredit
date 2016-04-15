@@ -1,0 +1,20 @@
+Main.java
+
+
+/**
+ * Declaring the Main class
+ */
+public class Main {
+/**
+ *To declare a class you should:
+ *use 'class'
+ *use a class name that starts with a letter and only contains letters, numbers, or underscores
+ *class names should begin with a capital letter (Main instead of main)
+ *a class can be public, private, etc....
+ */
+	
+	public static void main(String[] args) {
+		
+	}
+
+}
