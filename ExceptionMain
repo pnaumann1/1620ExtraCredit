@@ -1,0 +1,68 @@
+//this imports all of java util, instead of importing scanner, and each exception individually
+import java.util.*;
+
+public class ExceptionMain {
+	/**
+	  *String DIVIDE_BY_ZERO prints out when the user puts in zero for the divisor
+	  */
+	        private static final String DIVIDE_BY_ZERO = "You can't divide by zero. Please run the program again.";
+	 /**
+	   *String INVALID_NUMBER prints out when the user inputs an invalid number (integers only)
+	  */
+	        private static final String INVALID_NUMBER = "You entered an invalid number (remember they have to be integers). Please run the program again.";
+
+	        public static void main(String[] args) {
+	/**
+	  *boolean isDoneGettingInput controls the the input
+	  */
+	        boolean isDoneGettingInput = false;
+
+	        Scanner scanner = new Scanner(System.in);
+
+	        while (!isDoneGettingInput)
+	        {
+	        	//Exceptions use a try/catch block
+	        	//In this program you enter two integers and it will tell you the quotient
+	        	//The program will first 'try' running what is in the try block
+	        	//If your input is correct(in this instance two integers) then it will print out the final sysout
+	        	//If the input is incorrect, the program will then go to a catch block
+	        	//In this instance it would be if you input something other than an integer(such as 'four' instead of 4)it would then go to the 
+	        	//catch block of InputMismatchException, which would have a sysout that explains what you did incorrect
+	        	//In this program it could also go into the catch block for ArithmeticException, but this would only 
+	        	//happen if you tried to divide by zero
+
+	            
+	        	//start of try block 
+	        	// you will be asked for two integers
+	        	
+	        	try
+	            {
+	                System.out.println("Welcome to the division program.");
+	                System.out.println("Enter the first number (numerator) as an integer");
+	                int numerator = scanner.nextInt();
+	                System.out.println("Enter the second number (denominator) as an integer");
+	                int denominator = scanner.nextInt();
+	                double quotient = numerator/denominator;
+	                isDoneGettingInput = true;
+	                System.out.println("The quotient is " + quotient);
+	            }
+	            //start of catch block for InputMismatchException
+	        	// this is in case you input something other than an integer, then it will print out 
+	        	//INVALID_NUMBER string
+	        	catch (InputMismatchException e)
+	            {
+	                System.out.println ( INVALID_NUMBER );
+	                break;
+	            }
+	        	//start of catch block for ArithmeticException
+	        	//this is in case you input a zero for your dominator, you can not divide by zero
+	        	//This will then print out DIVIDE_BY_ZERO string
+	            catch (ArithmeticException e)
+	            {
+	                System.out.println ( DIVIDE_BY_ZERO );
+	                break;
+	            }
+	        }
+	    }
+	}
+	            
